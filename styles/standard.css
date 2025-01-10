@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+section{
+    background-color:black;
+    width: 100vw;
+    height: calc(100vh - 200px);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100vw;
+    background-color: black;
+    
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="Pokedecks" />
+    <meta name="Pokedecks" content="Pokedecks" />
+
+    <title>Pokedex</title>
+
+    <link href="./styles/standard.css" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+
+    <script src="./scripts/databank.js"></script>
+    <script src="script.js"></script>
+    <script src="./scripts/templates.js"></script>
+  </head>
+
+  <body>
+    <header class="pokedex-header">
+      <div class="pokedex-logo-container">
+        <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="" />
+      </div>
+
+      <div class="search-container">
+        <div class="search-field-and-btn">
+          <div class="search-field">
+            <input type="text" class="search-input-field" placeholder="Suchen" />
+          </div>
+          <button type="submit" class="search-btn">Los</button>
+        </div>
+      </div>
+    </header>
+    <section>
+        <div id="cardGallery" class="card-gallery">
+             <!-- template wird hier eingefügt  -->
+              <div class="card-container">
+                <div class="card-header">
+
+                </div>
+                <div class="card-img-container">
+                    <img class="card-img" src="" alt="">
+                </div>
+                <div class="card-abilities">
+                    <img class="card-abilities-logos" src="" alt="">
+                    <img class="card-abilities-logos" src="" alt="">
+                    <img class="card-abilities-logos" src="" alt="">
+                </div>
+                <div class="card-container-navbar">
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline">
+                          <button class="btn btn-outline-success" type="button">Main button</button>
+                          <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+                        </form>
+                      </nav>
+                </div>
+              </div>
+        </div>
+    </section>
+  </body>
+  <footer>
+    <img class="footer-img" src="./imgs/logos/createdByTerrorDackel.png" alt="">
+  </footer>
+
+
+</html>
