@@ -34,10 +34,10 @@
     </header>
     <section>
         <div id="cardGallery" class="card-gallery">
-             <!-- template wird hier eingefügt  -->
+             <!-- template für cardGallery wird hier eingefügt  -->
               <div class="card-container">
                 <div class="card-header">
-
+                    <span class="card-header-txt">${}</span>
                 </div>
                 <div class="card-img-container">
                     <img class="card-img" src="" alt="">
@@ -47,13 +47,31 @@
                     <img class="card-abilities-logos" src="" alt="">
                     <img class="card-abilities-logos" src="" alt="">
                 </div>
-                <div class="card-container-navbar">
-                    <nav class="navbar navbar-light bg-light">
-                        <form class="form-inline">
-                          <button class="btn btn-outline-success" type="button">Main button</button>
-                          <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
-                        </form>
-                      </nav>
+                <div class="card-container-navbar-and-content">
+                    <div class="card-container-navbar">
+                        <nav class="card-navbar">
+                            <button id="mainBtn" onclick="showContentGalleryMain()" class="card-navbar-btn">
+                                <span class="card-navbar-btn-txt">
+                                    main
+                                </span>
+                            </button>
+                            <button id="statsBtn" onclick="showContentGalleryStats()" class="card-navbar-btn">
+                                <span class="card-navbar-btn-txt">
+                                    stats
+                                </span>
+                            </button>
+                            <button id="evoChainBtn" onclick="showContentGalleryEvoChain()" class="card-navbar-btn">
+                                <span class="card-navbar-btn-txt">
+                                    evo chain
+                                </span>
+                            </button>
+                        </nav>
+                    </div>
+                    <div id="contentGallery" class="card-content-navbar">
+                        <!-- templates für showContentGalleryMain wird hier eingefügt -->
+                        <!-- templates für showContentGalleryStats wird hier eingefügt -->
+                        <!-- templates für showContentGalleryEcoChain wird hier eingefügt -->
+                    </div>
                 </div>
               </div>
         </div>

@@ -57,12 +57,70 @@
 
 }
 
-/* --------------------------------Gallery für Karten------------------------------------------- */
+/* ----------------------------cardGallery für Karten------------------------------------------- */
 .card-gallery{
     display: flex;
     align-items: center;
     justify-content: center;
     background-color:rgb(30, 30, 30);
+}
+
+.card-container{
+    display: flex;
+}
+
+/* ----------------card-header------------------ */
+.card-header{
+    display: flex;
+}
+
+.card-header-txt{
+    display: flex;
+}
+
+/* ----------------card-img------------------ */
+.card-img-container{
+    display: flex;
+}
+
+.card-img{
+    display: flex;
+}
+
+/* ----------------card-abilities------------------ */
+.card-abilities{
+    display: flex;
+}
+
+.card-abilities-logos{
+    display: flex;
+}
+
+/* ----------------card-navbar------------------ */
+
+.card-container-navbar-and-content{
+    display: flex;
+}
+
+.card-container-navbar{
+    display: flex;
+}
+
+.card-navbar{
+    display: flex;
+}
+
+.card-navbar-btn{
+    display: flex;
+}
+
+.card-navbar-btn-txt{
+    display: flex;
+}
+
+/* -------------------------contentGallery für Karten------------------------------------------- */
+.card-content-navbar{
+    display: flex;
 }
 
 /* ----------------------------------------Footer----------------------------------------------- */
