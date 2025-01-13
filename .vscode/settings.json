@@ -1,0 +1,11 @@
+{
+      "accessibility.signals.codeActionApplied": {
+            "sound": "off"
+      },
+      "accessibility.signals.codeActionTriggered": {
+            "sound": "off"
+      },
+      "liveshare.accessibility.soundsEnabled": false,
+      "liveshare.accessibility.soundVolume": 0,
+      "accessibility.signalOptions.volume": 0
+}

@@ -17,7 +17,7 @@
     <script src="./scripts/templates.js"></script>
   </head>
 
-  <body>
+  <body onload="usePromise()">
     <header class="pokedex-header">
       <div class="pokedex-logo-container">
         <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="" />
@@ -32,10 +32,11 @@
         </div>
       </div>
     </header>
-    <section>
-        <div id="cardGallery" class="card-gallery">
+    <section class="pokemon-list">
+        <div id="pokemonGallery" class="pokemon-gallery">
              <!-- template für cardGallery wird hier eingefügt  -->
-              <div class="card-container">
+             <div id="notFoundMessage" class="not-found-message">This pokemon wasnt found.</div> 
+             <div class="card-container">
                 <div class="card-header">
                     <span class="card-header-txt">${}</span>
                 </div>
