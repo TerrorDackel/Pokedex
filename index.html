@@ -3,84 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta name="description" content="Pokedecks" />
-    <meta name="Pokedecks" content="Pokedecks" />
-
+    <meta name="description" content="Pokedex" />
+    <meta name="author" content="Pokedexs" />
     <title>Pokedex</title>
-
     <link href="./styles/standard.css" rel="stylesheet" />
     <link href="./styles.css" rel="stylesheet" />
-
-    <script src="./scripts/databank.js"></script>
-    <script src="script.js"></script>
-    <script src="./scripts/templates.js"></script>
+    <script src="script.js" defer></script>
   </head>
 
   <body onload="usePromise()">
-    <header class="pokedex-header">
+    <div class="pokedex-header">
       <div class="pokedex-logo-container">
-        <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="" />
+        <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="Pokedex Logo" />
       </div>
 
       <div class="search-container">
-        <div class="search-field-and-btn">
-          <div class="search-field">
-            <input type="text" class="search-input-field" placeholder="Suchen" />
-          </div>
-          <button type="submit" class="search-btn">Los</button>
-        </div>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchButton">Go!</button>
+        <div id="errorMessage" style="display:none; color: red;"></div>
       </div>
-    </header>
-    <section class="pokemon-list">
-        <div id="pokemonGallery" class="pokemon-gallery">
-             <!-- template für cardGallery wird hier eingefügt  -->
-             <div id="notFoundMessage" class="not-found-message">This pokemon wasnt found.</div> 
-             <div class="card-container">
-                <div class="card-header">
-                    <span class="card-header-txt">${}</span>
-                </div>
-                <div class="card-img-container">
-                    <img class="card-img" src="" alt="">
-                </div>
-                <div class="card-abilities">
-                    <img class="card-abilities-logos" src="" alt="">
-                    <img class="card-abilities-logos" src="" alt="">
-                    <img class="card-abilities-logos" src="" alt="">
-                </div>
-                <div class="card-container-navbar-and-content">
-                    <div class="card-container-navbar">
-                        <nav class="card-navbar">
-                            <button id="mainBtn" onclick="showContentGalleryMain()" class="card-navbar-btn">
-                                <span class="card-navbar-btn-txt">
-                                    main
-                                </span>
-                            </button>
-                            <button id="statsBtn" onclick="showContentGalleryStats()" class="card-navbar-btn">
-                                <span class="card-navbar-btn-txt">
-                                    stats
-                                </span>
-                            </button>
-                            <button id="evoChainBtn" onclick="showContentGalleryEvoChain()" class="card-navbar-btn">
-                                <span class="card-navbar-btn-txt">
-                                    evo chain
-                                </span>
-                            </button>
-                        </nav>
-                    </div>
-                    <div id="contentGallery" class="card-content-navbar">
-                        <!-- templates für showContentGalleryMain wird hier eingefügt -->
-                        <!-- templates für showContentGalleryStats wird hier eingefügt -->
-                        <!-- templates für showContentGalleryEcoChain wird hier eingefügt -->
-                    </div>
-                </div>
-              </div>
-        </div>
+    </div>
+
+    <section class="main-container">
+      <div class="pokemon-gallery-container">
+        <div id="pokemonGallery" class="pokemon-gallery"></div> <!-- Dies ist der einzige Container für die Pokémon-Galerie -->
+        <div class="not-found-message" id="notFoundMessage" style="display: none;">Sorry, dieses Pokémon wurde nicht gefunden!</div>
+      </div>
     </section>
+
+    <footer>
+      <img class="footer-img" src="./imgs/logos/createdByTerrorDackel.png" alt="Created by TerrorDackel" />
+    </footer>
   </body>
-  <footer>
-    <img class="footer-img" src="./imgs/logos/createdByTerrorDackel.png" alt="">
-  </footer>
-
-
 </html>
