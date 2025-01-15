@@ -8,26 +8,31 @@
     <title>Pokedex</title>
     <link href="./styles/standard.css" rel="stylesheet" />
     <link href="./styles.css" rel="stylesheet" />
+    <link href="./styles/detailPokemoncard.css" rel="stylesheet" />
+    <link href="./styles/searchPokemoncard.css" rel="stylesheet" />
     <script src="script.js" defer></script>
   </head>
 
   <body onload="usePromise()">
-    <div class="pokedex-header">
+     <div class="pokedex-header">
       <div class="pokedex-logo-container">
         <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="Pokedex Logo" />
       </div>
-
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
+        <input type="text" id="searchInput" placeholder="Search..." />
         <button id="searchButton">Go!</button>
-        <div id="errorMessage" style="display:none; color: red;"></div>
+        <div id="errorMessage" style="display:none; color: red; margin-left:10px"></div>
       </div>
     </div>
 
-    <section class="main-container">
+<section class="main-container">
       <div class="pokemon-gallery-container">
-        <div id="pokemonGallery" class="pokemon-gallery"></div> <!-- Dies ist der einzige Container für die Pokémon-Galerie -->
-        <div class="not-found-message" id="notFoundMessage" style="display: none;">Sorry, dieses Pokémon wurde nicht gefunden!</div>
+        <div id="pokemonGallery" class="pokemon-gallery">
+
+        </div>
+        <div class="not-found-message" id="notFoundMessage" style="display: none;">
+          Sorry, dieses Pokémon wurde nicht gefunden!
+        </div>
       </div>
     </section>
 
