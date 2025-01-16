@@ -29,7 +29,7 @@ const errorMessage =
   ); /* sucht die nachricht für fehler bei der suche */
 
 fetch(
-  "https://pokeapi.co/api/v2/pokemon?limit=165&offset=24"
+  "https://pokeapi.co/api/v2/pokemon?limit=20&offset=24"
 ) /* lädt die ersten 165 pokemons mit einem offset von 24 */
   .then((response) =>
     response.json()
@@ -112,7 +112,9 @@ function createPokemonCard(pokemon) {
     pokemon.types
   ); /* holt sich die hintergrundfarbe basierend auf den typen des pokemons */
 
-  pokemonCard.innerHTML = ` /* hier wird der inhalt der pokemon-karte erstellt */
+  pokemonCard.innerHTML =
+    /* hier wird der inhalt der pokemon-karte erstellt */
+    ` 
   <div class="pokemon-card" style="background-color: ${cardBackgroundColor};">
     <div class="card-header" >
       <span class="card-header-txt">${pokemon.name}</span>

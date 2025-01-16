@@ -1,43 +1,57 @@
-
 /* ------------------------details----container-------for-------all---------------------*/
 
-#contentGallery{
+#contentGallery {
   display: flex;
   justify-content: center;
-  height: 90vh;
-  width: 80%;
-   position: fixed;
+width: 90vw;
+height: 90vh;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(128, 128, 128, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(42, 109, 148, 0.5);
   z-index: 1000;
-  overflow-y: auto; 
+  overflow-y: auto;
   transition: all 0.3s ease-in-out;
 }
 
+#detialGallery {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  justify-content: center;
+
+  position: fixed;
+
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  background-color: rgba(42, 109, 148, 0.5);
+  z-index: 1000;
+  overflow-y: auto;
+  transition: all 0.3s ease-in-out;
+}
 
 .pokemon-details-container {
-  margin: 50px;
+  margin: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+
   overflow: auto;
   color: #fff;
   border-radius: 15px;
   background-color: rgb(26, 70, 95);
-
+  font-size: 40px;
 }
 
 .pokemon-card {
-  width: 150px;
-  /* background-color: #333; */
-
+  width: 200px;
+  height: auto;
   border-radius: 8px;
   cursor: pointer;
   text-align: center;
@@ -69,7 +83,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-
 /* Pokémon-Details */
 .card-header-txt {
   font-size: 18px;
@@ -81,13 +94,17 @@
 }
 
 .card-img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
 }
 
 /* ------------------------details----header---------------------------------------------*/
 .details-header-container {
+  height: 100px;
+  display: flex;
+  position: fixed;
+  top: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -121,12 +138,22 @@
 
 .close-detail-btn {
   display: flex;
-  justify-content: right;
-  background-color: rgb(26, 70, 95);
-  border: none;
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+
+  font-size: 18px;
+  border-radius: 50%;
+  background-color: yellow;
+  color: black;
+
+  text-align: center;
+}
+
+.close-detail-btn:hover {
+  color: #000000;
+  transform: scale(1.2);
 }
 
 /* ------------------------details----img-----and------abilitys----------------------------*/
@@ -134,7 +161,10 @@
 .details-img-and-abilitys-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  margin-top: 2000px;
+  width: 90vw;
+  height: 300px;
 }
 
 .details-img-container {
@@ -148,20 +178,45 @@
 .details-img {
   display: flex;
   justify-content: center;
+  width: 200px;
+  height: 200px;
 }
 
 .details-abilitiesnav {
   display: flex;
   justify-content: center;
   height: 50px;
+  background-color: rgb(26, 70, 95);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .details-abilities-btns {
-  margin: 5px;
+  margin: 10px;
+  padding: 25px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: rgb(26, 70, 95);
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: solid;
+  border: 1px;
+  border-color: black;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+.details-abilities-btns:hover {
+  margin: 10px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(38, 101, 138);
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
   border: solid;
   border: 1px;
   border-color: black;
@@ -201,8 +256,26 @@
 }
 
 .details-stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgb(26, 70, 95);
   list-style-type: none;
-  padding: 0;
-  padding: 5px 0;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.details-stats-headline {
+  font-size: 28px;
+  margin-left: 5px;
+}
+
+.details-stats-txt {
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
 }

@@ -1,10 +1,8 @@
-
 .pokedex-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
-  padding: 20px;
 }
 
 .pokedex-logo-container {
@@ -19,7 +17,7 @@
   background-color: aqua;
   width: 25px;
   height: 25px;
- transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 /* Pokémon-Galerie */
@@ -28,25 +26,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow-y: auto; 
-  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: blue;
   padding-right: 10px;
-
 }
 
 .pokemon-gallery {
-  width: 95%;
-  height: 95%;
+  width: 100vw;
+  max-width: 1440px;
+height: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 20px;
-  overflow-y: scroll;
-  scrollbar-width: thin; 
-  scrollbar-color: #555 #ccc;
 }
-
-
 
 /* Fehlermeldung */
 #notFoundMessage {
