@@ -10,7 +10,7 @@
     <link href="./styles.css" rel="stylesheet" />
     <link href="./styles/detailPokemoncard.css" rel="stylesheet" />
     <link href="./styles/searchPokemoncard.css" rel="stylesheet" />
-    <script href="./scripts/templates.js"></script>
+    <!-- <script href="./scripts/templates.js"></script> -->
     <script src="script.js" defer></script>
   </head>
 
@@ -24,9 +24,11 @@
         />
       </div>
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search..." />
-        <button id="searchButton">Go!</button>
-        <div
+           <div class="search-container-input-button"></div>
+              <input type="text" id="searchInput" placeholder="Search..." />
+              <button id="searchButton">Go!</button>
+            </div>
+      <div
           id="errorMessage"
           style="display: none; color: red; margin-left: 10px"
         ></div>

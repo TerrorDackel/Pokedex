@@ -1,7 +1,7 @@
 .search-container {
   display: flex;
-
-  width: 700px;
+justify-content: center;
+  width: auto;
   background-color: black;
   border-radius: 15px;
 }
