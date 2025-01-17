@@ -7,7 +7,7 @@ let currentPokemons =
 let pokemonTypesCache =
   {}; /* hier wird ein leeres objekt für den cache von pokemontypen erstellt */
 let currentOffset = 0; /* offset für die API anfragen des bestimmt welche pokemonkartn geladen werden*/
-const limit = 20; /* annzahl der pokemon je anfrage*/
+const limit =  40; /* annzahl der pokemon je anfrage*/
 
 const searchInput =
   document.querySelector(
@@ -36,7 +36,7 @@ const loadingSpinner =
   /*ladebildschirmbalken*/
 
 fetch(
-  "https://pokeapi.co/api/v2/pokemon?limit=40&offset=24"
+  "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"
 ) /* lädt die ersten 165 pokemons mit einem offset von 24 */
   .then((response) =>
     response.json()

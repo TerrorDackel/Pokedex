@@ -7,6 +7,37 @@
   padding: 20px;
 }
 
+@media only screen and (max-width: 570px) {
+  .pokedex-header {
+    display: flex;
+    flex-direction: column;
+  }
+  .search-container{
+  display: flex;
+justify-content: center;
+  width: 320px;
+  background-color: black;
+  border-radius: 15px;
+  }
+}
+
+@media only screen and (max-width: 488px) {
+  .content-gallery {
+    display: flex;
+    width: 320px;
+    font-size: 20px;
+  }
+ .detail-img-abilitiesnav-container{
+    display: flex;
+    width: 320px;
+ }
+ .pokemon-details-container{
+    display: flex;
+    justify-content: center;
+    width: 320px;
+ }
+}
+
 .pokedex-logo-container {
   display: flex;
 }
