@@ -6,6 +6,8 @@ let currentPokemons =
   []; /* hier wird ein leeres array für die aktuell angezeigten pokemons erstellt */
 let pokemonTypesCache =
   {}; /* hier wird ein leeres objekt für den cache von pokemontypen erstellt */
+let currentOffset = 0; /* offset für die API anfragen des bestimmt welche pokemonkartn geladen werden*/
+const limit = 20; /* annzahl der pokemon je anfrage*/
 
 const searchInput =
   document.querySelector(
@@ -27,9 +29,14 @@ const errorMessage =
   document.querySelector(
     "#errorMessage"
   ); /* sucht die nachricht für fehler bei der suche */
+const loadMoreButton = document.querySelector("#loadMoreButton"); 
+//*loadmorebtn*/
+const loadingSpinner =
+  document.querySelector("#loadingSpinner"); 
+  /*ladebildschirmbalken*/
 
 fetch(
-  "https://pokeapi.co/api/v2/pokemon?limit=20&offset=24"
+  "https://pokeapi.co/api/v2/pokemon?limit=40&offset=24"
 ) /* lädt die ersten 165 pokemons mit einem offset von 24 */
   .then((response) =>
     response.json()
@@ -58,6 +65,34 @@ fetch(
   .catch((error) =>
     console.error("Fehler beim Abrufen der Pokémon:", error)
   ); /* wenn ein fehler beim laden passiert, wird er hier ausgegeben */
+
+function loadPokemons(offset) {
+  showLoadingSpinner();
+  loadMoreButton.disabled = true;
+
+  fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+    .then((response) => response.json())
+    .then((data) => {
+      const pokemonPromises = data.results.map((pokemon) =>
+        fetch(pokemon.url)
+          .then((response) => response.json())
+          .then((pokemonDetails) => pokemonDetails)
+      );
+
+      Promise.all(pokemonPromises).then((pokemons) => {
+        allPokemons = [...allPokemons, ...pokemons];
+        currentPokemons = allPokemons;
+        renderPokemonCardsGallery(); // Pokémon-Karten rendern
+        hideLoadingSpinner();
+        loadMoreButton.disabled = false; // Button wieder aktivieren
+      });
+    })
+    .catch((error) => {
+      console.error("Fehler beim Abrufen der Pokémon:", error);
+      hideLoadingSpinner();
+      loadMoreButton.disabled = false;
+    });
+}
 
 function renderPokemonCardsGallery() {
   /* rendert die pokemon-karten in der galerie */
@@ -112,21 +147,51 @@ function createPokemonCard(pokemon) {
     pokemon.types
   ); /* holt sich die hintergrundfarbe basierend auf den typen des pokemons */
 
-  pokemonCard.innerHTML =
-    /* hier wird der inhalt der pokemon-karte erstellt */
-    ` 
+  pokemonCard.innerHTML = /* hier wird der inhalt der pokemon-karte erstellt */ ` 
   <div class="pokemon-card" style="background-color: ${cardBackgroundColor};">
     <div class="card-header" >
-      <span class="card-header-txt">${pokemon.name}</span>
+        <span class="card-header-nb"># ${pokemon.id}</span>
+       <span class="card-header-txt">${pokemon.name}</span>
     </div>
     <div class="card-img-container">
-      <img class="card-img" src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
+      <img class="card-img" src="${pokemon.sprites.front_default}" alt="${
+    pokemon.name
+  }" />
+    </div>
+    <div class="details-types-container">
+     ${pokemon.types
+       .map(
+         (type) =>
+           `<button class="pokemon-type-button" style="background-color: ${getBackgroundColorByType(
+             [type]
+           )};">${type.type.name}</button>`
+       )
+       .join("")}
     </div>
   </div>
   `;
 
   return pokemonCard; /* gibt die erstellte pokemon-karte zurück */
 }
+
+// Funktion zum Anzeigen des Ladebildschirms
+function showLoadingSpinner() {
+  loadingSpinner.style.display = "block";
+}
+
+// Funktion zum Verstecken des Ladebildschirms
+function hideLoadingSpinner() {
+  loadingSpinner.style.display = "none";
+}
+
+// Button-Event für "Load More"
+loadMoreButton.addEventListener("click", () => {
+  currentOffset += limit; // Offset erhöhen
+  loadPokemons(currentOffset); // Pokémon nachladen
+});
+
+// Beim ersten Laden der Seite Pokémon anzeigen
+loadPokemons(currentOffset);
 
 function handleCardClick(pokemonCard, pokemon) {
   /* wird aufgerufen wenn auf eine pokemon-karte geklickt wird */
@@ -247,6 +312,16 @@ function generatePokemonDetailsHTML(data, backgroundColor) {
             <img class="details-img" src="${data.sprites.front_default}" alt="${
     data.name
   }" style="width: 100px; height: 100px; margin-bottom: 20px;" />
+          </div>
+           <div class="details-types-container">
+            ${data.types
+              .map(
+                (type) =>
+                  `<button class="pokemon-type-button" style="background-color: ${getBackgroundColorByType(
+                    [type]
+                  )};">${type.type.name}</button>`
+              )
+              .join("")}
           </div>
           <div class="details-abilitiesnav">
             <button id="mainBtn" class="details-abilities-btns">Main</button>

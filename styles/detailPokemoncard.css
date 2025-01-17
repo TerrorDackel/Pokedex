@@ -3,17 +3,17 @@
 #contentGallery {
   display: flex;
   justify-content: center;
-width: 90vw;
-height: 90vh;
+  width: 90vw;
+  height: 90vh;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.85);
-  padding: 20px;
-  background-color: rgba(42, 109, 148, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  /* background-color: rgba(42, 109, 148, 0.5); */
   z-index: 1000;
-  overflow-y: auto;
+  overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
 
@@ -23,9 +23,7 @@ height: 90vh;
   left: 50%;
   display: flex;
   justify-content: center;
-
   position: fixed;
-
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.85);
   padding: 20px;
@@ -33,6 +31,13 @@ height: 90vh;
   z-index: 1000;
   overflow-y: auto;
   transition: all 0.3s ease-in-out;
+}
+
+.details-types-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: ;
+  padding: 10px;
 }
 
 .pokemon-details-container {
@@ -84,6 +89,11 @@ height: 90vh;
 }
 
 /* Pokémon-Details */
+.card-header {
+  padding: 10px;
+  font-size: 20px;
+}
+
 .card-header-txt {
   font-size: 18px;
   color: white;
@@ -99,24 +109,32 @@ height: 90vh;
   object-fit: contain;
 }
 
+.details-types-container {
+  display: flex;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
 /* ------------------------details----header---------------------------------------------*/
 .details-header-container {
-  height: 100px;
+  height: 70px;
   display: flex;
+  top: 50%;
+  left: 20%;
   position: fixed;
   top: 5px;
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  width: 100%;
+    font-size: 20px;
+  width: 100vw;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-
   background-color: black;
 }
 
 .details-header {
-  width: 95%;
+  width: 50vw;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -11,7 +11,6 @@
     <link href="./styles/detailPokemoncard.css" rel="stylesheet" />
     <link href="./styles/searchPokemoncard.css" rel="stylesheet" />
     <script src="script.js" defer></script>
-
   </head>
 
   <body onload="usePromise()">
@@ -33,25 +32,26 @@
       </div>
     </div>
 
-    <section class="main-container">
+  <section class="main-container">
       <div class="pokemon-gallery-container">
         <div id="pokemonGallery" class="pokemon-gallery"></div>
-        <div
-          class="not-found-message"
-          id="notFoundMessage"
-          style="display: none"
-        >
+        <div class="not-found-message" id="notFoundMessage" style="display: none;">
           Sorry, dieses Pokémon wurde nicht gefunden!
         </div>
-      </div>
+       
     </section>
 
     <footer>
-      <img
+       <div id="loadingSpinner" style="display: none;">Loading...</div> 
+        <button class="load-more-btn" id="loadMoreButton">Load more</button> 
+        </div>
+        <div class="designed-by">
+      <!-- <img
         class="footer-img"
         src="./imgs/logos/createdByTerrorDackel.png"
         alt="Created by TerrorDackel"
-      />
+      /> -->
+      </div>
     </footer>
   </body>
 </html>
