@@ -221,9 +221,10 @@
   border: solid;
   border: 1px;
   border-color: black;
-  font-size: 24px;
+  font-size: 18px;
   color: black;
   cursor: pointer;
+  
 }
 
 .details-abilities-btns:hover {
