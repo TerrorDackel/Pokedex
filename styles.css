@@ -1,4 +1,3 @@
-
 .pokedex-header {
   display: flex;
   justify-content: space-between;
@@ -12,45 +11,72 @@
     display: flex;
     flex-direction: column;
   }
-  .search-container{
-  display: flex;
-justify-content: center;
-  width: 320px;
-  background-color: black;
-  border-radius: 15px;
+  .search-container {
+    display: flex;
+    justify-content: center;
+    width: 320px;
+    background-color: black;
+    border-radius: 15px;
   }
 }
 
 @media only screen and (max-width: 488px) {
   .content-gallery {
     display: flex;
-    width: 320px;
+    width: 305px;
     font-size: 20px;
   }
- .detail-img-abilitiesnav-container{
+  .detail-img-abilitiesnav-container {
     display: flex;
-    width: 320px;
- }
- .pokemon-details-container{
+    width: 310px;
+  }
+  .details-stats-container {
     display: flex;
     justify-content: center;
-    width: 320px;
- }
+    width: 300px;
+  }
+  .details-abilitiesnav {
+    display: flex;
+    justify-content: center;
+    width: 290px;
+  }
+  .pokemon-details-container {
+    display: flex;
+    width: 305px;
+  }
+
+  .details-abilities-btns {
+    scale: 0.7;
+  }
+
+  .pokedex-logo-container {
+    display: flex;
+  }
+
+  .details-img {
+    margin-left: 50px;
+  }
+
+  .pokedex-logo-img {
+    height: 80px;
+  }
+
+  .close-detail-btn {
+    background-color: aqua;
+    width: 25px;
+    height: 25px;
+    transform: rotate(360deg);
+  }
+
+  .details-header {
+    width: 300px;
+  }
 }
 
-.pokedex-logo-container {
-  display: flex;
-}
-
-.pokedex-logo-img {
-  height: 80px;
-}
-
-.close-detail-btn {
-  background-color: aqua;
-  width: 25px;
-  height: 25px;
- transform: rotate(360deg);
+@media only screen and (max-width: 488px) {
+  .details-header-headline-txt {
+    font-size: 18px;
+  }
 }
 
 /* Pokémon-Galerie */
@@ -64,10 +90,9 @@ justify-content: center;
   overflow-y: auto;
   background-color: #000000;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   padding-right: 10px;
-
 }
 
 .pokemon-gallery {
@@ -78,11 +103,9 @@ justify-content: center;
   justify-content: center;
   padding: 20px;
   overflow-y: scroll;
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: #555 #ccc;
 }
-
-
 
 /* Fehlermeldung */
 #notFoundMessage {
@@ -100,4 +123,3 @@ justify-content: center;
   margin-top: 50px;
   height: 50px;
 }
-

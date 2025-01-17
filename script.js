@@ -9,10 +9,7 @@ let pokemonTypesCache =
 let currentOffset = 0; /* offset für die API anfragen des bestimmt welche pokemonkartn geladen werden*/
 const limit =  40; /* annzahl der pokemon je anfrage*/
 
-const searchInput =
-  document.querySelector(
-    "#searchInput"
-  ); /* sucht das input-feld für die suchanfrage */
+const searchInput = document.querySelector("#searchInput"); /* sucht das input-feld für die suchanfrage */
 const searchButton =
   document.querySelector(
     "#searchButton"
@@ -311,7 +308,7 @@ function generatePokemonDetailsHTML(data, backgroundColor) {
           <div class="details-img-container">
             <img class="details-img" src="${data.sprites.front_default}" alt="${
     data.name
-  }" style="width: 100px; height: 100px; margin-bottom: 20px;" />
+  };" />
           </div>
            <div class="details-types-container">
             ${data.types
@@ -450,3 +447,5 @@ searchInput.addEventListener("focus", () => {
     renderPokemonCardsGallery(); /* rendert die pokemon-galerie */
   }
 });
+
+
