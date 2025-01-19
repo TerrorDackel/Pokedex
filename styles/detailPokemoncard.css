@@ -33,8 +33,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-
-
 .details-types-container {
   display: flex;
   justify-content: space-around;
@@ -137,7 +135,6 @@
 }
 
 .details-header {
-
   width: 50vw;
   display: flex;
   align-items: center;
@@ -306,4 +303,24 @@
   font-size: 20px;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.back-and-forth-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  background-color: rgb(26, 70, 95);
+}
+
+.back-btn {
+  background-color: rgb(26, 70, 95);
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.forth-btn {
+  background-color: rgb(26, 70, 95);
+  color: whitesmoke;
+  cursor: pointer;
 }

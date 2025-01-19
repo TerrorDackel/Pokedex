@@ -8,6 +8,7 @@ let pokemonTypesCache =
   {}; /* hier wird ein leeres objekt für den cache von pokemontypen erstellt */
 let currentOffset = 0; /* offset für die API anfragen des bestimmt ab welche id geladen werden*/
 const limit = 40; /* annzahl der pokemon je anfrage*/
+let currentPokemonId = null;/*zum speichern der aktuellen id der detailcard*/
 
 const searchInput =
   document.querySelector(
@@ -173,6 +174,32 @@ function createPokemonCard(pokemon) {
   return pokemonCard; /* gibt die erstellte pokemon-karte zurück */
 }
 
+// Funktion zum Anzeigen der Pokémon-Details basierend auf der ID
+function showPokemonDetailsById(pokemonId) {
+  fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
+    .then((response) => response.json())
+    .then((data) => displayPokemonDetails(data))
+    .catch((error) => {
+      console.error("Fehler beim Abrufen der Pokémon-Details:", error);
+    });
+}
+
+// Diese Funktion zeigt die Pokémon-Details an
+function displayPokemonDetails(data) {
+  let contentGallery = document.querySelector("#contentGallery"); // Container für die Detailansicht
+  contentGallery = createOverlayIfNeeded(contentGallery); // Erstellt ein Overlay, falls noch keines existiert
+
+  const backgroundColor = getBackgroundColorByType(data.types); // Bestimmt die Hintergrundfarbe basierend auf den Typen
+  contentGallery.innerHTML = generatePokemonDetailsHTML(data, backgroundColor); // Setzt den Inhalt der Detailansicht
+
+  addCloseButtonEventListener(); // Eventlistener für den Schließ-Button hinzufügen
+  contentGallery.style.display = "block"; // Zeigt die Detailansicht an
+
+  currentPokemonId = data.id; // Setzt die aktuelle Pokémon-ID
+
+
+}
+
 // Funktion zum Anzeigen des Ladebildschirms
 function showLoadingSpinner() {
   loadingSpinner.style.display = "block";
@@ -222,7 +249,7 @@ function showPokemonDetails(url) {
   /* zeigt die details eines pokemons an */
   const pokemonId =
     extractPokemonId(url); /* extrahiert die pokemon-id aus der url */
-  fetchPokemonDetails(
+    fetchPokemonDetails(
     pokemonId
   ); /* lädt die details des pokemons basierend auf der id */
 }
@@ -250,27 +277,17 @@ function fetchPokemonDetails(pokemonId) {
     );
 }
 
-function displayPokemonDetails(data) {
-  /* zeigt die pokemon-details an */
-  let contentGallery =
-    document.querySelector(
-      "#contentGallery"
-    ); /* sucht den container für die detailansicht */
-  contentGallery =
-    createOverlayIfNeeded(
-      contentGallery
-    ); /* erstellt ein overlay wenn noch keins existiert */
-
-  const backgroundColor = getBackgroundColorByType(
-    data.types
-  ); /* holt sich die hintergrundfarbe basierend auf den typen des pokemons */
-  contentGallery.innerHTML = generatePokemonDetailsHTML(
-    data,
-    backgroundColor
-  ); /* setzt den inhalt der detailansicht */
-
-  addCloseButtonEventListener(); /* fügt ein eventlistener für den schließ-button hinzu */
-  contentGallery.style.display = "block"; /* zeigt die detailansicht an */
+// Funktion für das Zurückblättern (ID -1)
+function showLastDetailCard() {
+  if (currentPokemonId > 1) { // Stelle sicher, dass es ein Pokémon mit der ID -1 gibt
+    currentPokemonId--; // Reduziert die ID um 1 für das vorherige Pokémon
+    showPokemonDetailsById(currentPokemonId);
+  }
+}
+// Funktion für das Vorwärtsblättern (ID +1)
+function showNextDetailCard() {
+  currentPokemonId++; // Erhöht die ID um 1 für das nächste Pokémon
+  showPokemonDetailsById(currentPokemonId);
 }
 
 function createOverlayIfNeeded(contentGallery) {
@@ -295,7 +312,7 @@ function generatePokemonDetailsHTML(data, backgroundColor) {
   /* erstellt den html-code für die detailansicht eines pokemons */
   return `
     <div class="content-gallery" id="contentGallery">
-      <div class="pokemon-details-container" style="background-color: ${backgroundColor};" width:500px>
+      <div class="pokemon-details-container" style="background-color: ${backgroundColor};">
         <div class="details-header-container">
           <div class="details-header">
             <p class="details-header-headline-nb">#: ${data.id}</p>
@@ -331,24 +348,37 @@ function generatePokemonDetailsHTML(data, backgroundColor) {
                 .map((stat) => `<li>${stat.stat.name}: ${stat.base_stat}</li>`)
                 .join("")}
             </ul>
-          </div>
+             <div class="back-and-forth-container">
+                <button class="back-btn" onclick="showLastDetailCard()">
+                  ←
+                </button>
+                
+                <button class="forth-btn" onclick="showNextDetailCard()">
+                  →
+                </button>
         </div>
+          </div>
       </div>
     </div>
   `;
 }
 
 function addCloseButtonEventListener() {
-  /* fügt einen eventlistener für den schließ-button hinzu */
-  const closeDetailBtn =
-    document.querySelector("#closeDetailBtn"); /* sucht den schließ-button */
-  closeDetailBtn.addEventListener("click", () => {
-    /* wenn der button geklickt wird */
-    const contentGallery =
-      document.querySelector("#contentGallery"); /* sucht die contentGallery */
-    contentGallery.style.display = "none"; /* versteckt die detailansicht */
-  });
+  const closeDetailBtn = document.querySelector("#closeDetailBtn");
+  if (closeDetailBtn) {
+    // Überprüft, ob der Button existiert
+    closeDetailBtn.addEventListener("click", () => {
+      const contentGallery = document.querySelector("#contentGallery");
+      if (contentGallery) {
+        contentGallery.style.display = "none"; // Versteckt die Detailansicht
+      }
+      currentPokemonId = null; // Setzt die aktuelle Pokémon-ID zurück
+    });
+  } else {
+    console.error("Schließ-Button nicht gefunden!");
+  }
 }
+
 
 function getBackgroundColorByType(types) {
   /* holt sich die hintergrundfarbe basierend auf den typen des pokemons */
