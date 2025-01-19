@@ -6,9 +6,9 @@
   padding: 20px;
 }
 
-  .search-container-input-button{
-    display: flex;
-  }
+.search-container-input-button {
+  display: flex;
+}
 
 @media only screen and (max-width: 790px) {
   .pokedex-header {
@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
   }
-  #errorMessage{
+  #errorMessage {
     font-size: 16px;
     padding: 5px;
   }
@@ -41,15 +41,6 @@
     border-radius: 15px;
   }
 }
-
-/* @media only screen and (max-width: 500px) {
-  .search-container{
-    flex-direction: column;
-  }
-  .search-container-input-button{
-    display: flex;
-  }
-} */
 
 @media only screen and (max-width: 488px) {
   .content-gallery {

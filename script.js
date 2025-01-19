@@ -1,4 +1,4 @@
-function usePromise() {} /* hier wird eine leere funktion deklariert die anscheinend nirgends verwendet wird */
+// function usePromise() {}
 
 let allPokemons =
   []; /* hier wird ein leeres array für alle pokemons erstellt */
@@ -6,10 +6,13 @@ let currentPokemons =
   []; /* hier wird ein leeres array für die aktuell angezeigten pokemons erstellt */
 let pokemonTypesCache =
   {}; /* hier wird ein leeres objekt für den cache von pokemontypen erstellt */
-let currentOffset = 0; /* offset für die API anfragen des bestimmt welche pokemonkartn geladen werden*/
-const limit =  40; /* annzahl der pokemon je anfrage*/
+let currentOffset = 0; /* offset für die API anfragen des bestimmt ab welche id geladen werden*/
+const limit = 40; /* annzahl der pokemon je anfrage*/
 
-const searchInput = document.querySelector("#searchInput"); /* sucht das input-feld für die suchanfrage */
+const searchInput =
+  document.querySelector(
+    "#searchInput"
+  ); /* sucht das input-feld für die suchanfrage */
 const searchButton =
   document.querySelector(
     "#searchButton"
@@ -26,15 +29,14 @@ const errorMessage =
   document.querySelector(
     "#errorMessage"
   ); /* sucht die nachricht für fehler bei der suche */
-const loadMoreButton = document.querySelector("#loadMoreButton"); 
+const loadMoreButton = document.querySelector("#loadMoreButton");
 //*loadmorebtn*/
-const loadingSpinner =
-  document.querySelector("#loadingSpinner"); 
-  /*ladebildschirmbalken*/
+const loadingSpinner = document.querySelector("#loadingSpinner");
+/*ladebildschirmbalken*/
 
 fetch(
   "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0"
-) /* lädt die ersten 165 pokemons mit einem offset von 24 */
+) /* lädt die ersten 40 pokemons mit einem offset von 0 */
   .then((response) =>
     response.json()
   ) /* wandelt die antwort in ein json-objekt um */
@@ -187,9 +189,6 @@ loadMoreButton.addEventListener("click", () => {
   loadPokemons(currentOffset); // Pokémon nachladen
 });
 
-// Beim ersten Laden der Seite Pokémon anzeigen
-loadPokemons(currentOffset);
-
 function handleCardClick(pokemonCard, pokemon) {
   /* wird aufgerufen wenn auf eine pokemon-karte geklickt wird */
   pokemonCard.classList.remove(
@@ -296,7 +295,7 @@ function generatePokemonDetailsHTML(data, backgroundColor) {
   /* erstellt den html-code für die detailansicht eines pokemons */
   return `
     <div class="content-gallery" id="contentGallery">
-      <div class="pokemon-details-container" style="background-color: ${backgroundColor};">
+      <div class="pokemon-details-container" style="background-color: ${backgroundColor};" width:500px>
         <div class="details-header-container">
           <div class="details-header">
             <p class="details-header-headline-nb">#: ${data.id}</p>
@@ -447,5 +446,3 @@ searchInput.addEventListener("focus", () => {
     renderPokemonCardsGallery(); /* rendert die pokemon-galerie */
   }
 });
-
-

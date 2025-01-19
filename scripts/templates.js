@@ -1,30 +1,30 @@
-// function createPokemonCardTemplate(pokemon, cardBackgroundColor) {
-//   return `
-//     <div class="pokemon-card" style="background-color: ${cardBackgroundColor};">
-//       <div class="card-header">
-//         <span class="card-header-nb"># ${pokemon.id}</span>
-//         <span class="card-header-txt">${pokemon.name}</span>
-//       </div>
-//       <div class="card-img-container">
-//         <img class="card-img" src="${pokemon.sprites.front_default}" alt="${
-//     pokemon.name
-//   }" />
-//       </div>
-//       <div class="details-types-container">
-//         ${pokemon.types
-//           .map(
-//             (type) => `
-//               <button class="pokemon-type-button" style="background-color: ${getBackgroundColorByType(
-//                 [type]
-//               )};">
-//                 ${type.type.name}
-//               </button>`
-//           )
-//           .join("")}
-//       </div>
-//     </div>
-//   `;
-// }
+function createPokemonCardTemplate(pokemon, cardBackgroundColor) {
+  return `
+    <div class="pokemon-card" style="background-color: ${cardBackgroundColor};">
+      <div class="card-header">
+        <span class="card-header-nb"># ${pokemon.id}</span>
+        <span class="card-header-txt">${pokemon.name}</span>
+      </div>
+      <div class="card-img-container">
+        <img class="card-img" src="${pokemon.sprites.front_default}" alt="${
+    pokemon.name
+  }" />
+      </div>
+      <div class="details-types-container">
+        ${pokemon.types
+          .map(
+            (type) => `
+              <button class="pokemon-type-button" style="background-color: ${getBackgroundColorByType(
+                [type]
+              )};">
+                ${type.type.name}
+              </button>`
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
 
 
 function generatePokemonDetailsHTMLTemplate(data, backgroundColor) {
