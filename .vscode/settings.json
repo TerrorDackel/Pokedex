@@ -1,11 +1,11 @@
 {
-      "accessibility.signals.codeActionApplied": {
+    "accessibility.signals.codeActionApplied": {
             "sound": "off"
-      },
-      "accessibility.signals.codeActionTriggered": {
+    },
+    "accessibility.signals.codeActionTriggered": {
             "sound": "off"
-      },
-      "liveshare.accessibility.soundsEnabled": false,
-      "liveshare.accessibility.soundVolume": 0,
-      "accessibility.signalOptions.volume": 0
+    },
+    "liveshare.accessibility.soundsEnabled": false,
+    "liveshare.accessibility.soundVolume": 0,
+    "accessibility.signalOptions.volume": 0
 }

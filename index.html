@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Pokedex" />
-    <meta name="author" content="Pokedexs" />
-    <title>Pokedex</title>
-    <link href="./styles/standard.css" rel="stylesheet" />
-    <link href="./styles.css" rel="stylesheet" />
-    <link href="./styles/detailPokemoncard.css" rel="stylesheet" />
-    <link href="./styles/searchPokemoncard.css" rel="stylesheet" />
-    <!-- <script href="./scripts/templates.js"></script> -->
-    <script src="script.js" defer></script>
-      <link rel="icon" href="./imgs/logos/Pokedex-logo.png" type="image/png">
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Pokedex" />
+        <meta name="author" content="Pokedexs" />
+        
+        <title>Pokedex</title>
 
-  <body>
-  <!-- <body onload="usePromise()"> -->
-    <div class="pokedex-header">
-      <div class="pokedex-logo-container">
-        <img
-          class="pokedex-logo-img"
-          src="./imgs/logos/Pokedex-logo.png"
-          alt="Pokedex Logo"
-        />
-      </div>
-      <div class="search-container">
-           <div class="search-container-input-button"></div>
-              <input type="text" id="searchInput" placeholder="Search..." />
-              <button id="searchButton">Go!</button>
+        <link href="./styles/standard.css" rel="stylesheet" />
+        <link href="./styles.css" rel="stylesheet" />
+        <link href="./styles/detailPokemoncard.css" rel="stylesheet" />
+        <link href="./styles/searchPokemoncard.css" rel="stylesheet" />
+
+        <script src="./scripts/templates.js" defer></script>
+        <script src="script.js" defer></script>
+
+        <link rel="icon" href="./imgs/logos/Pokedex-logo.png" type="image/png">
+    </head>
+
+    <body>
+        <div class="pokedex-header">
+            <div class="pokedex-logo-container">
+                <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="Pokedex Logo"/>
             </div>
-      <div
-          id="errorMessage"
-          style="display: none; color: red; margin-left: 10px"
-        ></div>
-      </div>
-    </div>
+            <div class="error-search-container">
+                <div id="errorMessage" style="display: none">
+                </div>
+                <div class="not-found-message" id="notFoundMessage" style="display: none">
+                    Sorry, dieses Pokémon wurde nicht gefunden!
+                </div>
+            </div>
+            <div class="placeholder-search-right-container">
 
-  <section class="main-container">
-      <div class="pokemon-gallery-container">
-        <div id="pokemonGallery" class="pokemon-gallery"></div>
-        <div class="not-found-message" id="notFoundMessage" style="display: none;">
-          Sorry, dieses Pokémon wurde nicht gefunden!
+            </div>
         </div>
-       
-    </section>
+        <div class="search-container">
+            <div class="search-container-input-button">
+            </div>
+            <input type="text" id="searchInput" placeholder="Search..." />
+            <button id="searchButton">
+                Go!
+            </button>
+        </div>
 
-    <footer>
-       <div id="loadingSpinner" style="display: none;">Loading...</div> 
-        <button class="load-more-btn" id="loadMoreButton">Load more</button> 
-        </div>
-        <div class="designed-by">
-      <!-- <img
-        class="footer-img"
-        src="./imgs/logos/createdByTerrorDackel.png"
-        alt="Created by TerrorDackel"
-      /> -->
-      </div>
-    </footer>
-  </body>
+
+        <section class="main-container">
+            <div class="pokemon-gallery-container">
+                <div id="pokemonGallery" class="pokemon-gallery">
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div id="loadingSpinner" style="display: none;">
+                Loading...
+            </div> 
+            <button class="load-more-btn" id="loadMoreButton">
+                Load more
+            </button>
+            <div class="designed-by">
+            </div>
+        </footer>
+    </body>
 </html>
