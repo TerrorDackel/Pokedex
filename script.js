@@ -4,6 +4,8 @@ let pokemonTypesCache = {};
 let currentOffset = 0;
 const limit = 40;
 let currentPokemonId = null;
+let lastFocusedCard = null;
+
 const searchInput = document.querySelector("#searchInput");
 const searchButton = document.querySelector("#searchButton");
 const pokemonGallery = document.querySelector("#pokemonGallery");
@@ -87,6 +89,12 @@ function hideNotFoundMessage() {
 function createPokemonCard(pokemon) {
     const pokemonCard = document.createElement("div");
     pokemonCard.classList.add("pokemon-card");
+
+    // Tastatur- und Screenreader-Zugänglichkeit
+    pokemonCard.setAttribute("role", "button");
+    pokemonCard.setAttribute("tabindex", "0");
+    pokemonCard.setAttribute("aria-label", `Details zu ${pokemon.name}`);
+
     const cardBackgroundColor = getBackgroundColorByType(pokemon.types);
     pokemonCard.innerHTML =` 
         <div class="pokemon-card" style="background-color: ${cardBackgroundColor};">
@@ -102,15 +110,24 @@ function createPokemonCard(pokemon) {
             </div>
         </div>
     `;
+
+    pokemonCard.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            handleCardClick(pokemonCard, pokemon);
+        }
+    });
+
     return pokemonCard;
 }
 
 function showPokemonDetailsById(pokemonId) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-    .then((response) => response.json())
-    .then((data) => displayPokemonDetails(data))
-    .catch((error) => { console.error("Fehler beim Abrufen der Pokémon-Details:", error);
-    });
+        .then((response) => response.json())
+        .then((data) => displayPokemonDetails(data))
+        .catch((error) => {
+            console.error("Fehler beim Abrufen der Pokémon-Details:", error);
+        });
 }
 
 function displayPokemonDetails(data) {
@@ -120,9 +137,20 @@ function displayPokemonDetails(data) {
 
     contentGallery.innerHTML = generatePokemonDetailsHTMLTemplate(data, backgroundColor);
 
+    // Dialog-Semantik für Screenreader
+    contentGallery.setAttribute("role", "dialog");
+    contentGallery.setAttribute("aria-modal", "true");
+    contentGallery.setAttribute("aria-label", `Details zu ${data.name}`);
+
     addCloseButtonEventListener();
     contentGallery.style.display = "block";
     currentPokemonId = data.id;
+
+    // Fokus in den Dialog setzen
+    const closeDetailBtn = document.querySelector("#closeDetailBtn");
+    if (closeDetailBtn) {
+        closeDetailBtn.focus();
+    }
 }
 
 function showLoadingSpinner() {
@@ -139,6 +167,7 @@ loadMoreButton.addEventListener("click", () => {
 });
 
 function handleCardClick(pokemonCard, pokemon) {
+    lastFocusedCard = pokemonCard;
     pokemonCard.classList.remove("rotate");
     setTimeout(() => {
         pokemonCard.classList.add("rotate");
@@ -168,9 +197,9 @@ function extractPokemonId(url) {
 
 function fetchPokemonDetails(pokemonId) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-    .then((response) => response.json())
-    .then((data) => displayPokemonDetails(data))
-    .catch((error) => console.error("Fehler beim Abrufen der Pokémon-Details:", error));
+        .then((response) => response.json())
+        .then((data) => displayPokemonDetails(data))
+        .catch((error) => console.error("Fehler beim Abrufen der Pokémon-Details:", error));
 }
 
 function showLastDetailCard() {
@@ -208,6 +237,9 @@ function addCloseButtonEventListener() {
             const contentGallery = document.querySelector("#contentGallery");
             if (contentGallery) contentGallery.style.display = "none";
             currentPokemonId = null;
+            if (lastFocusedCard) {
+                lastFocusedCard.focus();
+            }
         });
     } else {
         console.error("Schließ-Button nicht gefunden!");
@@ -251,6 +283,21 @@ searchButton.addEventListener("click", () => {
         resetPokemonGallery();
     }
     renderPokemonCardsGallery();
+});
+
+// Suche auch per Enter-Taste im Input auslösen
+searchInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        const searchTerm = getSearchTerm();
+        if (isSearchTermValid(searchTerm)) {
+            filterPokemons(searchTerm);
+        } else {
+            showErrorMessage("Bitte füge mindestens 3 Buchstaben zur Suche hinzu");
+            resetPokemonGallery();
+        }
+        renderPokemonCardsGallery();
+    }
 });
 
 function getSearchTerm() {

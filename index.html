@@ -20,43 +20,101 @@
     </head>
 
     <body>
-        <div class="pokedex-header">
+        <a
+            href="#mainContent"
+            class="skip-link"
+        >
+            Direkt zum Pokédex-Inhalt springen
+        </a>
+
+        <header class="pokedex-header">
             <div class="pokedex-logo-container">
-                <img class="pokedex-logo-img" src="./imgs/logos/Pokedex-logo.png" alt="Pokedex Logo"/>
+                <img
+                    class="pokedex-logo-img"
+                    src="./imgs/logos/Pokedex-logo.png"
+                    alt="Pokedex Logo"
+                />
             </div>
+
             <div class="error-search-container">
-                <div id="errorMessage" style="display: none">
+                <div
+                    id="errorMessage"
+                    role="status"
+                    aria-live="polite"
+                    style="display: none"
+                >
                 </div>
-                <div class="not-found-message" id="notFoundMessage" style="display: none">
+
+                <div
+                    class="not-found-message"
+                    id="notFoundMessage"
+                    role="status"
+                    aria-live="polite"
+                    style="display: none"
+                >
                     Sorry, dieses Pokémon wurde nicht gefunden!
                 </div>
             </div>
+
             <div class="placeholder-search-right-container">
-
             </div>
-        </div>
-        <div class="search-container">
-            <div class="search-container-input-button">
-            </div>
-            <input type="text" id="searchInput" placeholder="Search..." />
-            <button id="searchButton">
-                Go!
-            </button>
-        </div>
+        </header>
 
-
-        <section class="main-container">
-            <div class="pokemon-gallery-container">
-                <div id="pokemonGallery" class="pokemon-gallery">
+        <main id="mainContent">
+            <div class="search-container">
+                <div class="search-container-input-button">
                 </div>
+
+                <label
+                    class="visually-hidden"
+                    for="searchInput"
+                >
+                    Pokémon suchen
+                </label>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search..."
+                />
+
+                <button
+                    id="searchButton"
+                    type="button"
+                    aria-label="Suche starten"
+                >
+                    Go!
+                </button>
             </div>
-        </section>
+
+            <section
+                class="main-container"
+                aria-label="Pokémon Galerie"
+            >
+                <div class="pokemon-gallery-container">
+                    <div
+                        id="pokemonGallery"
+                        class="pokemon-gallery"
+                    >
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <footer>
-            <div id="loadingSpinner" style="display: none;">
+            <div
+                id="loadingSpinner"
+                role="status"
+                aria-live="polite"
+                style="display: none;"
+            >
                 Loading...
             </div> 
-            <button class="load-more-btn" id="loadMoreButton">
+            <button
+                class="load-more-btn"
+                id="loadMoreButton"
+                type="button"
+            >
                 Load more
             </button>
             <div class="designed-by">

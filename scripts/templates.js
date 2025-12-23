@@ -26,7 +26,14 @@ function generatePokemonDetailsHTMLTemplate(data, backgroundColor) {
                 <div class="details-header">
                     <p class="details-header-headline-nb">#: ${data.id}</p>
                     <h2 class="details-header-headline-txt">${data.name}</h2>
-                    <button id="closeDetailBtn" class="close-detail-btn">X</button>
+                    <button
+                        id="closeDetailBtn"
+                        class="close-detail-btn"
+                        type="button"
+                        aria-label="Details schließen"
+                    >
+                        X
+                    </button>
                 </div>
             </div>
             <div class="details-img-and-abilitiesnav-container">
@@ -51,12 +58,22 @@ function generatePokemonDetailsHTMLTemplate(data, backgroundColor) {
                         ${data.stats.map((stat) => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join("")}
                     </ul>
                     <div class="back-and-forth-container">
-                        <button class="back-btn" onclick="showLastDetailCard()">
-                        ←
+                        <button
+                            class="back-btn"
+                            type="button"
+                            onclick="showLastDetailCard()"
+                            aria-label="Vorheriges Pokémon anzeigen"
+                        >
+                            ←
                         </button>
                         
-                        <button class="forth-btn" onclick="showNextDetailCard()">
-                        →
+                        <button
+                            class="forth-btn"
+                            type="button"
+                            onclick="showNextDetailCard()"
+                            aria-label="Nächstes Pokémon anzeigen"
+                        >
+                            →
                         </button>
                     </div>
                 </div>
