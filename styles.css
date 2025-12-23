@@ -41,29 +41,18 @@
 
 @media only screen and (max-width: 790px) {
     .pokedex-header {
-        display: flex;
         flex-direction: column;
     }
 }
 
 @media only screen and (max-width: 715px) {
     .pokedex-header {
-        display: flex;
         flex-direction: column;
-    }
-
-    #errorMessage {
-        display: block;
-        text-align: center;
-        font-size: 16px;
-        color: red;
-
     }
 }
 
 @media only screen and (max-width: 570px) {
     .pokedex-header {
-        display: flex;
         flex-direction: column;
     }
 

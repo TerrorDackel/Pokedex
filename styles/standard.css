@@ -1,5 +1,10 @@
-h3 { font-size: 26px; }
-li { font-size: 20px; }
+h3 {
+    font-size: 26px;
+}
+
+li {
+    font-size: 20px;
+}
 
 body {
     margin: 0;
@@ -40,7 +45,29 @@ footer {
     background-color: yellow;
 }
 
-/* Screenreader-Hilfsklassen */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus-visible {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid yellow;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    z-index: 2000;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -53,20 +80,12 @@ footer {
     border: 0;
 }
 
-/* Skip-Link für Tastaturnutzer */
-.skip-link {
-    position: absolute;
-    left: -999px;
-    top: 0;
-    background-color: #000;
-    color: #fff;
-    padding: 8px 16px;
-    z-index: 1000;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.skip-link:focus {
-    left: 10px;
-    top: 10px;
+button:focus-visible,
+#searchInput:focus-visible,
+.pokemon-type-button:focus-visible,
+.close-detail-btn:focus-visible,
+.back-btn:focus-visible,
+.forth-btn:focus-visible {
+    outline: 3px solid yellow;
+    outline-offset: 3px;
 }
