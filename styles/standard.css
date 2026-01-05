@@ -37,7 +37,32 @@ footer {
     background-color: yellow;
     padding: 0.5rem 1rem;
     font-size: 1rem;
+    font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 0.5rem;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+:root {
+    --load-more-spin-duration: 1.5s;
+}
+
+@keyframes loadMoreSpin {
+    from {
+        transform: perspective(600px) rotateY(0deg);
+    }
+    to {
+        transform: perspective(600px) rotateY(360deg);
+    }
+}
+
+.load-more-btn--loading {
+    animation: loadMoreSpin var(--load-more-spin-duration) linear infinite;
+}
+
+.loading-txt {
+    color: blue;
 }
 
 .skip-link {
@@ -83,4 +108,12 @@ button:focus-visible,
 .forth-btn:focus-visible {
     outline: 3px solid yellow;
     outline-offset: 3px;
+}
+
+.load-more-btn-txt{
+    display: flex;
+}
+
+.designed-by{
+    display: flex;
 }

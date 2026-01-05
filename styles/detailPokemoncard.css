@@ -290,6 +290,7 @@
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     overflow: hidden;
+    margin-bottom: 0.9rem;
 }
 
 .details-stats-list {

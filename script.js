@@ -156,6 +156,10 @@ function showLoadingSpinner() {
     if (loadMoreText) {
         loadMoreText.style.display = "none";
     }
+
+    if (loadMoreButton) {
+        loadMoreButton.classList.add("load-more-btn--loading");
+    }
 }
 
 function hideLoadingSpinner() {
@@ -165,7 +169,12 @@ function hideLoadingSpinner() {
     if (loadMoreText) {
         loadMoreText.style.display = "block";
     }
+
+    if (loadMoreButton) {
+        loadMoreButton.classList.remove("load-more-btn--loading");
+    }
 }
+
 
 
 loadMoreButton.addEventListener("click", () => {
