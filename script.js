@@ -1,11 +1,10 @@
 let allPokemons = [];
 let currentPokemons = [];
 let pokemonTypesCache = {};
-let currentOffset = 0;
-const limit = 40;
+let currentOffset = 40;
 let currentPokemonId = null;
 let lastFocusedCard = null;
-
+const limit = 110;
 const searchInput = document.querySelector("#searchInput");
 const searchButton = document.querySelector("#searchButton");
 const pokemonGallery = document.querySelector("#pokemonGallery");
@@ -175,11 +174,9 @@ function hideLoadingSpinner() {
     }
 }
 
-
-
 loadMoreButton.addEventListener("click", () => {
-    currentOffset += limit;
     loadPokemons(currentOffset);
+    currentOffset += limit;
 });
 
 function handleCardClick(pokemonCard, pokemon) {
