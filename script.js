@@ -134,10 +134,7 @@ function displayPokemonDetails(data) {
     let contentGallery = document.querySelector("#contentGallery");
     contentGallery = createOverlayIfNeeded(contentGallery);
     const backgroundColor = getBackgroundColorByType(data.types);
-
     contentGallery.innerHTML = generatePokemonDetailsHTMLTemplate(data, backgroundColor);
-
-    // Dialog-Semantik für Screenreader
     contentGallery.setAttribute("role", "dialog");
     contentGallery.setAttribute("aria-modal", "true");
     contentGallery.setAttribute("aria-label", `Details zu ${data.name}`);
@@ -146,7 +143,6 @@ function displayPokemonDetails(data) {
     contentGallery.style.display = "block";
     currentPokemonId = data.id;
 
-    // Fokus in den Dialog setzen
     const closeDetailBtn = document.querySelector("#closeDetailBtn");
     if (closeDetailBtn) {
         closeDetailBtn.focus();
@@ -155,11 +151,22 @@ function displayPokemonDetails(data) {
 
 function showLoadingSpinner() {
     loadingSpinner.style.display = "block";
+
+    const loadMoreText = document.querySelector(".load-more-btn-txt");
+    if (loadMoreText) {
+        loadMoreText.style.display = "none";
+    }
 }
 
 function hideLoadingSpinner() {
     loadingSpinner.style.display = "none";
+
+    const loadMoreText = document.querySelector(".load-more-btn-txt");
+    if (loadMoreText) {
+        loadMoreText.style.display = "block";
+    }
 }
+
 
 loadMoreButton.addEventListener("click", () => {
     currentOffset += limit;
@@ -285,7 +292,6 @@ searchButton.addEventListener("click", () => {
     renderPokemonCardsGallery();
 });
 
-// Suche auch per Enter-Taste im Input auslösen
 searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         event.preventDefault();

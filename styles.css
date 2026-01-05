@@ -39,6 +39,22 @@
     height: 60px;
 }
 
+footer{
+    display: flex;
+}
+
+.load-more-btn{
+    display: flex;
+}
+
+.load-more-btn-txt{
+    display: flex;
+}
+
+.designed-by{
+    display: flex;
+}
+
 @media only screen and (max-width: 790px) {
     .pokedex-header {
         flex-direction: column;
@@ -140,12 +156,4 @@
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: #555 #ccc;
-}
-
-.footer-img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    height: 50px;
 }
