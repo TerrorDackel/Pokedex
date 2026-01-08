@@ -1,109 +1,108 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Pokedex" />
-        <meta name="author" content="Pokedexs" />
-        <title>Pokedex</title>
-        <link href="./styles/standard.css" rel="stylesheet" />
-        <link href="./styles.css" rel="stylesheet" />
-        <link href="./styles/detailPokemoncard.css" rel="stylesheet" />
-        <link href="./styles/searchPokemoncard.css" rel="stylesheet" />
-        <script src="./scripts/templates.js" defer></script>
-        <script src="script.js" defer></script>
-        <link rel="icon" href="./imgs/logos/Pokedex-logo.png" type="image/png">
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pokedex" />
+    <meta name="author" content="Pokedexs" />
+    <title>Pokedex</title>
 
-    <body>
-        <header class="pokedex-header">
-            <div class="pokedex-logo-container">
-                <img
-                    class="pokedex-logo-img"
-                    src="./imgs/logos/Pokedex-logo.png"
-                    alt="Pokedex Logo"
-                />
-            </div>
-            <div class="error-search-container">
-                <div
-                    id="errorMessage"
-                    role="status"
-                    aria-live="polite"
-                    style="display: none"
-                >
-                </div>
-                <div
-                    class="not-found-message"
-                    id="notFoundMessage"
-                    role="status"
-                    aria-live="polite"
-                    style="display: none"
-                >
-                    Sorry, dieses Pokémon wurde nicht gefunden!
-                </div>
-            </div>
-            <div class="placeholder-search-right-container">
-              <div class="search-container">
-                <div class="search-container-input-button">
-                </div>
-                <label
-                    class="visually-hidden"
-                    for="searchInput"
-                >
-                    Pokémon suchen
-                </label>
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search..."
-                />
-                <button
-                    id="searchButton"
-                    type="button"
-                    aria-label="Suche starten"
-                >
-                    Go!
-                </button>
-              </div>
-            </div>
-        </header>
-        <main id="mainContent">
-            <section
-                class="main-container"
-                aria-label="Pokémon Galerie"
-            >
-                <div class="pokemon-gallery-container">
-                    <div
-                        id="pokemonGallery"
-                        class="pokemon-gallery"
-                    >
-                    </div>
-                </div>
-            </section>
-        </main>
+    <link href="./styles.css" rel="stylesheet" />
+    
+    <script src="./scripts/templates.js" defer></script>
+    <script src="script.js" defer></script>
 
-        <footer>
+    <link
+      rel="icon"
+      href="./imgs/logos/Pokedex-logo.png"
+      type="image/png"
+    />
+  </head>
+
+  <body>
+    <header class="pokedex-header">
+      <div class="pokedex-logo-container">
+        <img
+          class="pokedex-logo-img"
+          src="./imgs/logos/Pokedex-logo.png"
+          alt="Pokedex Logo"
+        />
+      </div>
+
+      <div class="error-search-container">
+        <div
+          id="errorMessage"
+          role="status"
+          aria-live="polite"
+          style="display: none"
+        ></div>
+
+        <div
+          class="not-found-message"
+          id="notFoundMessage"
+          role="status"
+          aria-live="polite"
+          style="display: none"
+        >
+          Sorry, dieses Pokémon wurde nicht gefunden!
+        </div>
+      </div>
+
+      <div class="placeholder-search-right-container">
+        <div class="search-container">
+          <div class="search-container-input-button"></div>
+
+          <label class="visually-hidden" for="searchInput">
+            Pokémon suchen
+          </label>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search..."
+          />
 
           <button
-              class="load-more-btn"
-              id="loadMoreButton"
-              type="button"
+            id="searchButton"
+            type="button"
+            aria-label="Suche starten"
           >
-            <div class="load-more-btn-txt">
-              Load more
-            </div>
-            <div
-                class="loading-txt"
-                id="loadingSpinner"
-                role="status"
-                aria-live="polite"
-                style="display: none;"
-            >
-              Loading...
-            </div> 
+            Go!
           </button>
-          <div class="designed-by">
-          </div>
-        </footer>
-    </body>
+        </div>
+      </div>
+    </header>
+
+    <main 
+      id="mainContent"
+      class="main-content">
+      <section class="main-container" aria-label="Pokémon Galerie">
+        <div class="pokemon-gallery-container">
+          <div id="pokemonGallery" class="pokemon-gallery"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <button
+        class="load-more-btn"
+        id="loadMoreButton"
+        type="button"
+      >
+        <div class="load-more-btn-txt">Load more</div>
+
+        <div
+          class="loading-txt"
+          id="loadingSpinner"
+          role="status"
+          aria-live="polite"
+          style="display: none"
+        >
+          Loading...
+        </div>
+      </button>
+
+      <div class="designed-by"></div>
+    </footer>
+  </body>
 </html>
