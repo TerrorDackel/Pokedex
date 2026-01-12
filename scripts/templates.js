@@ -15,11 +15,11 @@ function createPokemonCardTemplate(pokemon, cardBackgroundColor) {
       style="--card-bg: ${cardBackgroundColor};"
     >
       <div class="card-header">
+        <span class="card-header-nb">
+          #${pokemon.id}
+        </span>
         <span class="card-header-txt">
           ${pokemon.name}
-        </span>
-        <span class="card-header-nb">
-          # ${pokemon.id}
         </span>
       </div>
 
