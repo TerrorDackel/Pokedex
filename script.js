@@ -130,17 +130,25 @@ function hideNotFoundMessage() {
  *   A configured card element that can be activated via mouse or keyboard.
  */
 function createPokemonCard(pokemon) {
-  const pokemonCard = document.createElement("div");
-  pokemonCard.classList.add("pokemon-card");
+  const cardBackgroundColor = getBackgroundColorByType(pokemon.types);
+
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = createPokemonCardTemplate(pokemon, cardBackgroundColor);
+
+  /** @type {HTMLDivElement|null} */
+  const pokemonCard = wrapper.firstElementChild;
+
+  if (!pokemonCard) {
+    console.error("Card template did not render a root element");
+    return document.createElement("div");
+  }
 
   pokemonCard.setAttribute("role", "button");
   pokemonCard.setAttribute("tabindex", "0");
   pokemonCard.setAttribute("aria-label", `Details zu ${pokemon.name}`);
 
-  const cardBackgroundColor = getBackgroundColorByType(pokemon.types);
-  pokemonCard.style.setProperty("--type-color", cardBackgroundColor);
-
-  pokemonCard.innerHTML = createPokemonCardTemplate(pokemon);
+  /* Old implementation created a .pokemon-card element and then nested another .pokemon-card inside innerHTML. */
+  /* This caused double borders and double ::before/::after animations (orbit + glow). */
 
   pokemonCard.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
