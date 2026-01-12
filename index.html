@@ -29,56 +29,66 @@
         />
       </div>
 
-      <div class="error-search-container">
-        <div
-          id="errorMessage"
-          role="status"
-          aria-live="polite"
-          style="display: none"
-        ></div>
+      <div class="pokedex-search-error-message-container">
+        <div class="error-search-container">
+          <div
+            id="errorMessage"
+            role="status"
+            aria-live="polite"
+            style="display: none"
+          ></div>
 
-        <div
-          class="not-found-message"
-          id="notFoundMessage"
-          role="status"
-          aria-live="polite"
-          style="display: none"
-        >
-          Sorry, dieses Pokémon wurde nicht gefunden!
-        </div>
-      </div>
-
-      <div class="placeholder-search-right-container">
-        <div class="search-container">
-          <div class="search-container-input-button"></div>
-
-          <label class="visually-hidden" for="searchInput">
-            Pokémon suchen
-          </label>
-
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Search..."
-          />
-
-          <button
-            id="searchButton"
-            type="button"
-            aria-label="Suche starten"
+          <div
+            class="not-found-message"
+            id="notFoundMessage"
+            role="status"
+            aria-live="polite"
+            style="display: none"
           >
-            Go!
-          </button>
+            Sorry, dieses Pokémon wurde nicht gefunden!
+          </div>
+        </div>
+
+        <div class="placeholder-search-right-container">
+          <div class="search-container">
+            <div class="search-container-input-button"></div>
+
+            <label class="visually-hidden" for="searchInput">
+              Pokémon suchen
+            </label>
+
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search..."
+            />
+
+            <button
+              id="searchButton"
+              type="button"
+              aria-label="Suche starten"
+            >
+              Go!
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
     <main 
       id="mainContent"
-      class="main-content">
-      <section class="main-container" aria-label="Pokémon Galerie">
+      class="main-content"
+    >
+      <section 
+        class="main-container" 
+        aria-label="Pokémon Galerie"
+      >
         <div class="pokemon-gallery-container">
-          <div id="pokemonGallery" class="pokemon-gallery"></div>
+          <div 
+            id="pokemonGallery" 
+            class="pokemon-gallery"
+          >
+          </div>
         </div>
       </section>
     </main>
@@ -102,7 +112,7 @@
         </div>
       </button>
 
-      <div class="designed-by"></div>
+
     </footer>
   </body>
 </html>
