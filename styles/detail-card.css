@@ -169,7 +169,7 @@
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.5);
   padding: 0.5rem;
-  cursor: pointer;
+  cursor: auto;
   font-size: 1rem;
 }
 
