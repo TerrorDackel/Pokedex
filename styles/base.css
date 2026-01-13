@@ -494,17 +494,19 @@ button:focus-visible,
   font-weight: 800;
   color: rgba(0, 0, 0, 0.92);
   text-transform: capitalize;
+  padding: 0 0.5rem;
 }
 
 .card-header-nb {
   width: 30%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   font-size: 0.9rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
   color: rgba(0, 0, 0, 0.78);
+  padding: 0 0.5rem;
 }
 
 .card-img-container {
