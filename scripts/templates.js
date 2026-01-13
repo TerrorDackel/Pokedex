@@ -70,12 +70,12 @@ function generatePokemonDetailsHTMLTemplate(data, backgroundColor) {
     >
       <div class="details-header-container">
         <div class="details-header">
-          <p class="details-header-headline-txt">
-            ${data.name}
-          </p>
-
           <p class="details-header-headline-nb">
             # ${data.id}
+          </p>
+
+          <p class="details-header-headline-txt">
+            ${data.name}
           </p>
 
           <button
