@@ -141,7 +141,7 @@ function generatePokemonDetailsHTMLTemplate(data, backgroundColor) {
             ${data.stats.map((stat) => `
               <li class="details-stat-row">
                 <span class="details-stat-name">
-                  ${stat.stat.name}
+                  ${stat.stat.name}:
                 </span>
                 <span class="details-stat-value">
                   ${stat.base_stat}
