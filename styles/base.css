@@ -291,7 +291,7 @@ button:focus-visible,
 .pokemon-type-button {
   width: auto;
   color: #000000;
-  font-size: 0.75rem;
+  font-size: 1rem;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
   padding-top: 0.25rem;
@@ -333,7 +333,6 @@ button:focus-visible,
     0 10px 24px rgba(0, 0, 0, 0.35),
     inset 0 0 0 2px rgba(45, 30, 0, 0.35),
     inset 0 0 0 1px rgba(255, 255, 255, 0.10);
-
   --border-pad: 3px;
   --orb-size: 2rem;
   --orb-w: var(--orb-size);
@@ -342,10 +341,8 @@ button:focus-visible,
   --orb-spin: 0.6s;
   --glow-size: 3px;
   --glow-alpha: 0.55;
-
   --card-radius: 12px;
   --orbit-gap: 6px;
-
   --orb-top: calc(-1 * var(--orb-h) - var(--orbit-gap));
   --orb-left: calc(-1 * var(--orb-w) - var(--orbit-gap));
   --orb-right: calc(100% + var(--orbit-gap));
@@ -489,7 +486,7 @@ button:focus-visible,
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
   color: rgba(0, 0, 0, 0.92);
@@ -502,7 +499,7 @@ button:focus-visible,
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
   color: rgba(0, 0, 0, 0.78);
@@ -518,7 +515,6 @@ button:focus-visible,
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55) 0 30%, rgba(255, 255, 255, 0) 60%),
     linear-gradient(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.10));
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);
@@ -542,17 +538,14 @@ button:focus-visible,
   width: 320px;
   overflow: hidden;
   border-radius: 18px;
-
   background-color: var(--card-bg, rgba(255, 255, 255, 0.2));
   background-image:
     radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.22) 0 25%, rgba(255, 255, 255, 0) 55%),
     radial-gradient(circle at 75% 85%, rgba(0, 0, 0, 0.18) 0 30%, rgba(0, 0, 0, 0) 60%),
     linear-gradient(rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.10));
-
   border-width: 4px;
   border-color: rgba(242, 211, 92, 1);
   border-style: solid;
-
   box-shadow:
     0 18px 50px rgba(0, 0, 0, 0.55),
     inset 0 0 0 2px rgba(45, 30, 0, 0.35);
@@ -572,16 +565,12 @@ button:focus-visible,
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-
   background-color: rgba(255, 255, 255, 0.78);
   border-radius: 0.85rem;
-
   padding: 0.55rem 0.75rem;
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.28);
-
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.35),
     0 2px 8px rgba(0, 0, 0, 0.28);
@@ -645,14 +634,11 @@ button:focus-visible,
   width: calc(100% - 1.5rem);
   height: 260px;
   margin-top: 0.75rem;
-
   border-radius: 0.9rem;
-
   background-color: rgba(245, 245, 245, 0.65);
   background-image:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55) 0 30%, rgba(255, 255, 255, 0) 60%),
     linear-gradient(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.10));
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);
@@ -672,10 +658,8 @@ button:focus-visible,
   align-items: center;
   height: 56px;
   margin-top: 0.6rem;
-
   background-color: rgba(255, 255, 255, 0.65);
   border-radius: 0.9rem;
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);
@@ -687,14 +671,11 @@ button:focus-visible,
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: rgba(0, 0, 0, 0.08);
   border-radius: 0.7rem;
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);
-
   font-size: 0.95rem;
   font-weight: 800;
   color: rgba(0, 0, 0, 0.78);
@@ -705,11 +686,9 @@ button:focus-visible,
   display: flex;
   text-align: center;
   align-items: center;
-
   background-color: rgba(255, 255, 255, 0.85);
   margin: 0.35rem;
   cursor: auto;
-
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -729,14 +708,11 @@ button:focus-visible,
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background-color: rgba(255, 255, 255, 0.65);
   border-radius: 0.9rem;
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);
-
   overflow: hidden;
   margin-top: 0.6rem;
   margin-bottom: 0.9rem;
@@ -798,7 +774,6 @@ button:focus-visible,
   color: rgba(0, 0, 0, 0.9);
   cursor: pointer;
   border-radius: 0.6rem;
-
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);
