@@ -43,10 +43,10 @@
   background-color: #2e2e2e;
   flex-wrap: wrap;
   box-shadow: none;
+  background-color: black;
 }
 
 .content-gallery {
-  max-width: 900%;
   max-height: 90%;
   position: fixed;
   top: 50%;
@@ -56,20 +56,6 @@
   padding: 0;
   z-index: 1000;
   overflow: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-#detialGallery {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  display: flex;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  background-color: rgba(42, 109, 148, 0.5);
-  padding: 20px;
-  z-index: 1000;
-  overflow-y: auto;
   transition: all 0.3s ease-in-out;
 }
 
@@ -87,17 +73,38 @@
 .pokemon-type-button {
   width: auto;
   color: #000000;
+  text-shadow:
+    0 0 1rem whitesmoke,
+    0 0 1rem black,
+    0 0 1rem whitesmoke;
   font-size: 1rem;
+  font-weight: bold;
   padding-left: 0.6rem;
   padding-right: 0.6rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 999px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.35);
+  border: 2px solid transparent;
+  position: relative;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
+
+.pokemon-type-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, hsl(48, 100%, 50%), hsl(210, 95%, 55%));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+
+
 
 .pokemon-card {
   width: 200px;
@@ -267,7 +274,10 @@
   align-items: center;
   margin-top: 0.6rem;
   padding: 0.6rem 0.2rem;
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: rgba(243, 175, 29, 0.212);
+  background-image:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0 30%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.20));
   border-radius: 0.6rem;
   border-width: 1px;
   border-style: solid;
@@ -278,28 +288,72 @@
 }
 
 .card-header-txt {
-  width: 70%;
+  width: 80%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  font-size: 1.2rem;
+  justify-content: flex-end;
+  font-size: 1.3rem;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
-  color: rgba(0, 0, 0, 0.92);
+  font-weight: 600;
+  padding: 0 0 0 0.25rem;
+  color: hsl(48, 100%, 50%);
+  text-shadow:
+      -1px 0 0 hsl(0, 0%, 35%),
+      1px 0 0 hsl(0, 0%, 35%),
+      0 -1px 0 hsl(0, 0%, 35%),
+      0 1px 0 hsl(0, 0%, 35%),
+      -1px -1px 0 hsl(0, 0%, 35%),
+      1px -1px 0 hsl(0, 0%, 35%),
+      -1px 1px 0 hsl(0, 0%, 35%),
+      1px 1px 0 hsl(0, 0%, 35%),
+      1px -0.27px 0 hsl(210, 95%, 48%),
+      1px -0.27px 0 hsl(210, 95%, 50%),
+      3px -0.80px 0 hsl(210, 95%, 52%),
+      4px -1.07px 0 hsl(210, 95%, 54%),
+      5px -1.34px 0 hsl(210, 95%, 56%),
+      6px -1.60px 1px hsl(210, 95%, 58%),
+      0 0 5px hsl(210, 95%, 55%),
+      1px -0.27px 3px hsl(210, 95%, 57%),
+      3px -0.80px 5px hsl(210, 95%, 59%),
+      5px -1.34px 10px hsl(210, 95%, 61%),
+      10px -2.68px 10px hsl(210, 95%, 63%),
+      15px -4.02px 15px hsl(210, 95%, 65%);
   text-transform: capitalize;
   padding: 0 0.5rem;
 }
 
 .card-header-nb {
-  width: 30%;
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  color: rgba(0, 0, 0, 0.78);
-  padding: 0 0.5rem;
+  font-weight: 500;
+  padding: 0 0 0 0.25rem;
+  color: hsl(56, 100%, 50%);
+  text-shadow:
+    -1px 0 0 hsl(0, 0%, 35%),
+    1px 0 0 hsl(0, 0%, 35%),
+    0 -1px 0 hsl(0, 0%, 35%),
+    0 1px 0 hsl(0, 0%, 35%),
+    -1px -1px 0 hsl(0, 0%, 35%),
+    1px -1px 0 hsl(0, 0%, 35%),
+    -1px 1px 0 hsl(0, 0%, 35%),
+    1px 1px 0 hsl(0, 0%, 35%),
+    1px -0.27px 0 hsl(210, 95%, 48%),
+    1px -0.27px 0 hsl(210, 95%, 50%),
+    3px -0.80px 0 hsl(210, 95%, 52%),
+    4px -1.07px 0 hsl(210, 95%, 54%),
+    5px -1.34px 0 hsl(210, 95%, 56%),
+    6px -1.60px 1px hsl(210, 95%, 58%),
+    0 0 5px hsl(210, 95%, 55%),
+    1px -0.27px 3px hsl(210, 95%, 57%),
+    3px -0.80px 5px hsl(210, 95%, 59%),
+    5px -1.34px 10px hsl(210, 95%, 61%),
+    10px -2.68px 10px hsl(210, 95%, 63%),
+    15px -4.02px 15px hsl(210, 95%, 65%);
+
 }
 
 .card-img-container {
@@ -307,10 +361,10 @@
   margin-top: 0.6rem;
   padding: 0.6rem 0.2rem;
   border-radius: 0.6rem;
-  background-color: rgba(245, 245, 245, 0.65);
+  background-color: rgba(243, 175, 29, 0.212);
   background-image:
-    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.55) 0 30%, rgba(255, 255, 255, 0) 60%),
-    linear-gradient(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.10));
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35) 0 30%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(rgba(0, 0, 0, 0.06), rgba(255, 255, 255, 0.20));
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.22);

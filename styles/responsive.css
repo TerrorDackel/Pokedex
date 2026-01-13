@@ -146,7 +146,7 @@
 @media only screen and (max-width: 488px) {
   .content-gallery {
     display: flex;
-    width: 305px;
+    width: 100%;
     font-size: 20px;
   }
 
