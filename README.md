@@ -13,6 +13,19 @@ Simple single-page Pokédex built with vanilla JavaScript, HTML and CSS. The app
 - Basic loading behaviour and simple error handling
 - Responsive layout for desktop and smaller screens
 
+## Accessibility
+- Keyboard accessible Pokémon cards (Tab/Enter/Space)
+- Visible focus styles (`:focus-visible`) for interactive elements
+- Live regions for status and error messages
+- Skip link to jump directly to main content
+- Respects `prefers-reduced-motion` (reduces/disables non-essential animations)
+- High contrast UI (dark background / bright focus ring) and no text below 1rem
+
+### Quick test checklist
+- Navigate the full UI using only the keyboard (Tab/Shift+Tab/Enter/Escape where applicable).
+- Enable “Reduce motion” in your OS/browser settings and verify animations stop or reduce.
+- Check contrast and focus visibility at 200% zoom.
+
 ## Tech stack
 - **Languages:** JavaScript, HTML5, CSS3
 - **Architecture:** Simple SPA without a framework
