@@ -144,11 +144,6 @@
 }
 
 @media only screen and (max-width: 488px) {
-  .content-gallery {
-    display: flex;
-    width: 100%;
-    font-size: 20px;
-  }
 
   .detail-img-abilitiesnav-container {
     display: flex;
@@ -198,7 +193,6 @@
   .placeholder-search-right-container {
     min-width: 160px;
   }
-  
 }
 
 @media (max-width: 370px) {

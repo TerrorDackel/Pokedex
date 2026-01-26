@@ -18,62 +18,62 @@
       type="image/png"
     />
   </head>
+  <header class="pokedex-header">
+    <div class="pokedex-logo-container">
+      <img
+        class="pokedex-logo-img"
+        src="./imgs/logos/Pokedex-logo.png"
+        alt="Pokedex Logo"
+      />
+    </div>
 
-  <body>
-    <header class="pokedex-header">
-      <div class="pokedex-logo-container">
-        <img
-          class="pokedex-logo-img"
-          src="./imgs/logos/Pokedex-logo.png"
-          alt="Pokedex Logo"
-        />
+    <div class="pokedex-search-error-message-container">
+      <div class="error-search-container">
+        <div
+          id="errorMessage"
+          role="status"
+          aria-live="polite"
+          style="display: none"
+        ></div>
+
+        <div
+          class="not-found-message"
+          id="notFoundMessage"
+          role="status"
+          aria-live="polite"
+          style="display: none"
+        >
+          Sorry, dieses Pokémon wurde nicht gefunden!
+        </div>
       </div>
 
-      <div class="pokedex-search-error-message-container">
-        <div class="error-search-container">
-          <div
-            id="errorMessage"
-            role="status"
-            aria-live="polite"
-            style="display: none"
-          ></div>
+      <div class="placeholder-search-right-container">
+        <div class="search-container">
+          <div class="search-container-input-button"></div>
 
-          <div
-            class="not-found-message"
-            id="notFoundMessage"
-            role="status"
-            aria-live="polite"
-            style="display: none"
+          <label class="visually-hidden" for="searchInput">
+            Pokémon suchen
+          </label>
+
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search..."
+          />
+
+          <button
+            id="searchButton"
+            type="button"
+            aria-label="Suche starten"
           >
-            Sorry, dieses Pokémon wurde nicht gefunden!
-          </div>
-        </div>
-
-        <div class="placeholder-search-right-container">
-          <div class="search-container">
-            <div class="search-container-input-button"></div>
-
-            <label class="visually-hidden" for="searchInput">
-              Pokémon suchen
-            </label>
-
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search..."
-            />
-
-            <button
-              id="searchButton"
-              type="button"
-              aria-label="Suche starten"
-            >
-              Go!
-            </button>
-          </div>
+            Go!
+          </button>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
+  <body>
+
 
     <main 
       id="mainContent"
@@ -93,24 +93,25 @@
       </section>
     </main>
 
-    <footer class="footer">
-      <button
-        class="load-more-btn"
-        id="loadMoreButton"
-        type="button"
-      >
-        <div class="load-more-btn-txt">Load more</div>
-
-        <div
-          class="loading-txt"
-          id="loadingSpinner"
-          role="status"
-          aria-live="polite"
-          style="display: none"
-        >
-          Loading...
-        </div>
-      </button>
-    </footer>
   </body>
+  
+  <footer class="footer">
+    <button
+      class="load-more-btn"
+      id="loadMoreButton"
+      type="button"
+    >
+      <div class="load-more-btn-txt">Load more</div>
+
+      <div
+        class="loading-txt"
+        id="loadingSpinner"
+        role="status"
+        aria-live="polite"
+        style="display: none"
+      >
+        Loading...
+      </div>
+    </button>
+  </footer>
 </html>
